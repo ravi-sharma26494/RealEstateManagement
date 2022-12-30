@@ -13,7 +13,6 @@ function Signin ({ setUser, setToken }) {
   })
   const history = useNavigate()
   const setVal = e => {
-    // console.log(e.target.value);
     const { name, value } = e.target
 
     setInpval(() => {
@@ -27,8 +26,6 @@ function Signin ({ setUser, setToken }) {
     e.preventDefault()
 
     const { email, password } = inpval
-
-    // console.log("user login succesfully done");
 
     const data = await fetch('/login', {
       method: 'POST',

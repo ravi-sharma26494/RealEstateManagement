@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "../css/signup.css";
-import eye from "../images/eye.png";
 
 import { Link, useNavigate } from "react-router-dom";
 const SignUp = () => {
@@ -31,7 +30,6 @@ const SignUp = () => {
 
     const { email, password, cpassword } = inpval;
 
-    // console.log("user registration succesfully done");
 
     if (email === "") {
       alert("please provide email");

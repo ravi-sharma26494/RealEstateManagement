@@ -49,12 +49,6 @@ const List = () => {
     fetch("http://localhost:8000/listing")
       .then((res) => res.json())
       .then((result) => {
-        // console.log(result.data);
-        // if(result.data.message ==="No data"){
-        //   console.log('Nothing to present')
-        // } else{
-        //   setData(result.data);
-        // }
         setData(result.data);
       });
   }, []);

@@ -66,25 +66,6 @@ const Header = () => {
         />
       </div>
     </div>
-    // <div className='header-container'>
-    //   {/* <div className='header-id'>USER ID: {'06PPD' + user.UserID} </div> */}
-    //   <div className='logout'>
-    //     <img className='user' src={userIcon} alt='user' />
-
-    //     {/* <div className='username'>{'   ' + user.UserName}</div> */}
-
-    //     <img
-    //       className='down'
-    //       src={down}
-    //       alt='data'
-    //       onClick={() => {
-    //         if (window.confirm('Do you want to logout.!?')) {
-    //           logoutuser()
-    //         }
-    //       }}
-    //     />
-    //   </div>
-    // </div>
   )
 }
 
