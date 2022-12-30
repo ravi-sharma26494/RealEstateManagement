@@ -1,76 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .sign-in-parent {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(216, 248, 237);
-  }
-  
-  .sign-in-form-container {
-    width: 30vw;
-    height: 28vw;
-    border-radius: 10px;
-    background-color: white;
-    position: relative;
-  }
-  
-  .sign-in-form-container h1 {
-    margin-top: 5vh;
-    margin-left: 12vw;
-  }
-  
-  .sign-in-form-container p {
-    margin-top: 2vh;
-    margin-left: 4vw;
-  }
-  
-  .sign-in-form-container input {
-    display: block;
-    height: 6vh;
-    width: 24vw;
-    margin-left: 3vw;
-  
-    border-radius: 3px;
-    border: 1px solid #e2e2e2;
-    margin-top: 3vh;
-  }
-  
-  .sign-in-form-container button {
-    display: block;
-    height: 6vh;
-    width: 24vw;
-    margin-left: 3vw;
-    border-radius: 3px;
-    margin-top: 3vh;
-    cursor: pointer;
-    background-color: #4c57b6;
-    color: white;
-  }
-  
-  .eye {
-    position: absolute;
-    left: 24vw;
-    top: 29vh;
-    cursor: pointer;
-  }
-
-.para {
-  position: absolute;
-  width: 215px;
-  height: 22px;
-  left: 610px;
-  top: 585px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-#signup {
-  /* margin-left: 35%; */
-  margin-top: 12%;
-  text-align: center;
-  margin-left: 1vw;
+.sign-in-parent {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(216, 248, 237);
+}
+
+.sign-in-form-container {
+  width: 600px;
+  height: 500px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: relative;
+}
+h1{
+  font-size: 64px;
+}
+p{
+  font-size: 18px;
+}
+.sign-in-form-container .page__logo,
+.page__header_text {
+  margin-top: 15px;
+  align-self: center;
+}
+.page__form {
+  width: 90%;
+  height: 90%;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+}
+form > div{
+  margin: 15px 0;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #4c57b6;
+}
+div > input{
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+}
+div > input:focus{
+  outline: none;
+}
+.input__email--field > input{
+  width: 100%;
+}
+
+ .input__password--field{
+  display: flex;
+  align-items: center;
+ }
+ .input__password--field > input{
+  flex: 1;
+ }
+ .input__password--field > div{
+  align-self: flex-end;
+  margin: auto;
+  cursor: pointer;
+ }
+ .input__password--field > div > i{
+  color: rgb(204, 203, 203);
+ }
+.sign-in-form-container button {
+  text-decoration: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4c57b6;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 10px 6px 28px 0px rgba(0,0,0,0.2);
+  transition: 0.2s all;
+}
+.sign-in-form-container button:active{
+  transform: scale(0.98);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+
+}
+.redirection{
+  border: none;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Media Queries */
+@media only screen and (max-width:600px) {
+  .sign-in-form-container {
+    width: 90%;
+  }
+  .input__password--field > div >i{
+    font-size: 24px;
+    
+   }
+}
+
+
+@media only screen and (max-width:400px) {
+  .sign-in-form-container {
+    width: 90%;
+  }
+  .input__password--field > div >i{
+    font-size: 24px;
+    
+   }
+   p{
+    font-size: 15px !important;
+    
+   }
+   .redirection{
+    display: flex;
+    flex-direction: column;
+   }
+   h1{
+    font-size: 32px;
+  }
+  
 }

@@ -57,11 +57,13 @@ function Signin ({ setUser, setToken }) {
   return (
     <div className='sign-in-parent'>
       <div className='sign-in-form-container'>
-        <h1 style={{ color: '#4c57b6' }}>Logo</h1>
-        <p className='description'>
+        <h1 style={{ color: '#4c57b6' }} className="page__logo">Logo</h1>
+        <p className="page__header_text">
           Enter your credentials to access your Account
         </p>
-        <form onSubmit={loginuser}>
+        <form className="page__form" onSubmit={loginuser}>
+        <div className="input__email--field">
+
           <input
             type='email'
             className='UserID'
@@ -72,6 +74,9 @@ function Signin ({ setUser, setToken }) {
             required
             onChange={setVal}
           />
+        </div>
+        <div className="input__password--field">
+
           <input
             className='password'
             type={showPassword ? 'text' : 'password'}
@@ -82,30 +87,22 @@ function Signin ({ setUser, setToken }) {
             required
             onChange={setVal}
           />
-          <span
-            className='eye'
-            onClick={() => {
-              setShowPassword(!showPassword)
-            }}
-          >
-            <img src={eye} alt='no data' />
-          </span>
+          <div
+             
+             onClick={() => {
+               setShowPassword(!showPassword);
+             }}
+           >
+             <i className="fa fa-eye-slash fa-2x" aria-hidden="true"></i>
+           </div>
+        </div>
           <button type='submit' className='submit-button'>
             Sign in
           </button>
-          <Link to='/Signup' style={{ fontWeight: 'bold' }}>
-            {' '}
-            <p id='signup'>SignUp</p>
-          </Link>
+          <div className="redirection">
+            <p>Dont have an account yet ? <span><Link to="/Signup"> Register </Link></span></p>
+          </div>
         </form>
-      </div>
-      <div>
-        <p className='para' style={{ color: '#4c57b6', marginLeft: '50px' }}>
-          Don't have an account?
-          <Link to='/Signup' style={{ fontWeight: 'bold' }}>
-            SignUp
-          </Link>
-        </p>
       </div>
     </div>
   )
