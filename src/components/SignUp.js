@@ -14,9 +14,7 @@ const SignUp = () => {
   const history = useNavigate();
 
   const setVal = (e) => {
-    // console.log(e.target.value)
     const { name, value } = e.target;
-
     setInpval(() => {
       return {
         ...inpval,

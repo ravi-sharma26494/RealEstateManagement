@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import '../css/login.css'
-import eye from '../images/eye.png'
+
 
 function Signin ({ setUser, setToken }) {
   const [showPassword, setShowPassword] = useState(false)

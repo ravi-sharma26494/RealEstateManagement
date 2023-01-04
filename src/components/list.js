@@ -5,18 +5,18 @@ import { useNavigate } from "react-router-dom";
 import "../css/list.css";
 import Listings from "./listings";
 import "../css/basicinfo.css";
-import Header from "./Header";
 import NewHeader from "./NewHeader";
 import NewLogo from "./NewLogo";
+import PropertyImage from "./PropertyImage";
 
-const List = () => {
+
+const List =() => {
   const navigate = useNavigate();
-
   const { logindata, setLoginData } = useContext(LoginContext);
 
   const [info, setInfo] = useState(false);
   const DashboardValid = async () => {
-    let token = localStorage.getItem("usersdatatoken");
+  let token = localStorage.getItem("usersdatatoken");
 
     const res = await fetch("/validuser", {
       method: "GET",
@@ -31,8 +31,7 @@ const List = () => {
     if (recivedData.status == 401 || !recivedData) {
       navigate("/");
     } else {
-      //   console.log('user verify')
-      setLoginData(recivedData);
+    setLoginData(recivedData);
     }
   };
 
@@ -45,17 +44,34 @@ const List = () => {
 
   const [listData, setData] = useState([]);
   const [ppdID, setppdID] = useState();
+  
+  
+  const getData = async()=>{
+    const response = await fetch("/api/listing");
+    const data = await response.json();
+    setData(data.data);
+    //console.log(data.data)
+  }
+  
   useEffect(() => {
-    fetch("http://localhost:8000/listing")
-      .then((res) => res.json())
-      .then((result) => {
-        setData(result.data);
-      });
-  }, []);
+      getData();
+    },[]);
+  
   function parent(chilData) {
     setppdID(chilData);
   }
-
+  //const [hideImage, setHideImage] = useState('open');
+  const [activeImage, setActiveImage] = useState([{myimage:''}]);
+  const [visible, setVisible] = useState('notvisible')
+  
+  
+  // const handleClick = async (id)=>{
+  //   const list = [...activeImage];
+  //   setVisible("visible");
+  // }
+  
+  const [show, setShow] = useState(false);
+  const[imageItem, setImageItem] = useState();
   return (
     <>
   <NewHeader />
@@ -73,7 +89,7 @@ const List = () => {
               <li>Views</li>
               <li>Status</li>
               <li>Days Left</li>
-              <li>Action</li>
+              {/* <li>Action</li> */}
             </ul>
           </div>
         </div>
@@ -97,8 +113,19 @@ const List = () => {
               >
                 <ul>
                   <li>{item.ppdid}</li>
-                  <li>
-                    <i className="fa fa-image" style={{ color: "#DFDFDF" }}></i>
+                  <li className="img-section"  
+                  onClick={()=>{
+                    setShow(true);
+                      setImageItem(item)
+                    }}>
+                    <i className="fa fa-image" style={{ color: "#DFDFDF" }}>
+                      {
+                        // <span className={visible}>
+                        //   <img src={item.image} alt="property__view" className={visible}/> 
+                        //   <span  className = "hide__img"> X </span>
+                        // </span> 
+                      }
+                    </i>
                   </li>
                   <li>{item.property}</li>
                   <li>{item.contact}</li>
@@ -106,14 +133,15 @@ const List = () => {
                   <li>{item.views}</li>
                   <li>{status}</li>
                   <li>{item.daysleft}</li>
-                  <li>
+                  {/* <li>
                     <i className="fa fa-edit" style={{ color: "#DFDFDF" }}></i>
                     <i className="fa fa-eye" style={{ color: "#DFDFDF" }}></i>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             );
           })}
+          <PropertyImage show={show} imageItem={imageItem} onClose = {()=>setShow(false)}/>
       </div>
     </>
   );
